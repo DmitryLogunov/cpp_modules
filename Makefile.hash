@@ -1,0 +1,11 @@
+hash: main.hash.o hash.o
+	g++ build/main.hash.o build/hash.o -o build/hash
+
+main.hash.o: main.hash.cpp
+	g++ -c main.hash.cpp -o build/main.hash.o
+
+hash.o: lib/hash/hash.cpp
+	g++ -c lib/hash/hash.cpp -o build/hash.o
+
+clean:
+	rm -rf build/*.o

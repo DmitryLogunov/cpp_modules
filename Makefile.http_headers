@@ -1,0 +1,14 @@
+http_headers: main.http_headers.o hash.o http_headers.o
+	g++ build/main.http_headers.o build/hash.o build/http_headers.o -o build/http_headers
+
+main.http_headers.o: main.http_headers.cpp
+	g++ -c main.http_headers.cpp -o build/main.http_headers.o
+
+hash.o: lib/hash/hash.cpp
+	g++ -c lib/hash/hash.cpp -o build/hash.o
+
+http_headers.o: lib/http_headers/http_headers_parser.cpp
+	g++ -c lib/http_headers/http_headers_parser.cpp -o build/http_headers.o
+
+clean:
+	rm -rf build/*.o
